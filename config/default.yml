@@ -10,8 +10,8 @@ lambda:
   functionName: 'cloudflare-logs'
 
   # This is an example role. You have to create your own
-  # # http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console
-  role: 'arn:aws:iam::302006000367:role/lambda-logpull'
+  # http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console
+  role: 'arn:aws:iam::123456789012:policy/cloudflare-logs-role'
   # The execution environment for the Lambda function.
   execution:
     runtime: 'nodejs8.10'
@@ -19,10 +19,12 @@ lambda:
     memorySizeMB: 512
 
 runtime:
-  # interval must match the rate defined in schedule.expression. For example, for 'rate(5 minutes)', interval is 5
+  # you can define the interval for polling new logs. You'll need to change the interval below 
+  # and the schedule expression above. interval must match the rate defined in schedule.expression.
+  # For example, for 'rate(5 minutes)', interval is 5
   interval: 5
   cf:
-    # These are example credentials. See README
+    # These are example credentials.
     authKey: 79bfb07774419f2dce2ae7a4f391d72207502
-    authEmail: frank@secure.franktaylor.io
+    authEmail: frank@example.com
     orgId: aba996ecd4306f7775a1f9a2f982008a
