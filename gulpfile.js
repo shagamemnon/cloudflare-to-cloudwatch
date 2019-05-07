@@ -29,9 +29,13 @@ gulp.task('node-mods', function () {
 
 gulp.task('config', function (done) {
   // TODO Provide a way to validate the config.
-  const runtimeConfig = config.get('runtime')
+  let runtimeConfig = config.get('runtime')
+  let awsConfig = config.get('region')
+  let prodConfig = Object.assign({}, runtimeConfig)
+  console.log(runtimeConfig, awsConfig)
+  prodConfig.region = awsConfig
 
-  fs.writeFile('dist/runtime-config.json', JSON.stringify(runtimeConfig), done)
+  fs.writeFile('dist/runtime-config.json', JSON.stringify(prodConfig), done)
 })
 
 gulp.task('zip', function () {
@@ -63,6 +67,11 @@ gulp.task('upload', function (callback) {
     .then(() => lambdaScheduler.schedule())
     .then(callback)
     .catch(callback)
+})
+
+gulp.task('invoke', function () {
+  const { logpull } = require('./dist/app/handler')
+  logpull()
 })
 
 gulp.task(

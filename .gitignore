@@ -78,5 +78,5 @@ Temporary Items
 # Build artifacts.
 /dist
 /dist.zip
-iam-role.json
 node_modules
+config/default.yml
