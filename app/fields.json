@@ -40,7 +40,6 @@
 		"OriginResponseHTTPLastModified",
 		"OriginResponseStatus",
 		"OriginResponseTime",
-		"OriginSSLProtocol",
 		"ParentRayID",
 		"RayID",
 		"SecurityLevel",
@@ -53,7 +52,6 @@
 		"WorkerCPUTime",
 		"WorkerStatus",
 		"WorkerSubrequest",
-		"WorkerSubrequestCount",
-		"ZoneID"
+		"WorkerSubrequestCount"
 	]
 }
