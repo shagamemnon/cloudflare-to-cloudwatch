@@ -3,7 +3,6 @@ let aws = {}
 aws.accessKeyId = process.env.AWS_ACCESS_KEY_ID
 aws.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
 const fields = require('./fields.json').fields
-console.log(conf)
 
 const AWS = require('aws-sdk')
 AWS.config.update({ region: conf.region })
