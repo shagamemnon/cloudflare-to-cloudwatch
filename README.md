@@ -2,6 +2,7 @@
 Stream Cloudflare ELS logs into CloudWatch
 
 ## Setup
+> If you plan to deploy this in your own GitHub account, please add config/default.yml to your .gitignore
 1. [In CloudWatch under *Logs*](https://console.aws.amazon.com/cloudwatch/home#logs:), create a new group, `cloudflare-group` and a new stream, `cloudflare-log-stream`
 2. [On the policies page](https://console.aws.amazon.com/iam/home#/policies$new?step=edit), create this policy:
 ```js
