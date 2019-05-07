@@ -1,0 +1,35 @@
+{
+  "name": "cloudflare-to-cloudwatch",
+  "description": "Automate Cloudflare Enterprise Log Share delivery to CloudWatch.",
+  "version": "1.0.2",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gulp deploy"
+  },
+  "files": [
+    "**/*.js",
+    "/config",
+    "/app",
+    "!dist"
+  ],
+  "repository": "shagamemnon/cloudflare-to-cloudwatch",
+  "author": "Frank Taylor",
+  "devDependencies": {
+    "config": "^3.0.0",
+    "del": "^4.1.0",
+    "gulp": "^4.0.0",
+    "gulp-install": "^1.1.0",
+    "gulp-zip": "^4.2.0",
+    "js-yaml": "^3.6.1",
+    "node-aws-lambda": "^0.1.8",
+    "node-aws-lambda-scheduler": "^1.0.4"
+  },
+  "dependencies": {
+    "assert": "^1.4.1",
+    "aws-sdk": "^2.447.0",
+    "lodash": "^4.17.11",
+    "node-fetch": "^2.5.0",
+    "signal-exit": "^3.0.2",
+    "uuid": "^3.3.2"
+  }
+}

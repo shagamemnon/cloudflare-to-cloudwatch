@@ -1,0 +1,32 @@
+region: 'us-east-1'
+
+handler: 'app/handler.logpull'
+
+schedule:
+  name: 'oneminute'
+
+  # `cron(0 13 * * ? *)` // daily at 13:00 GMT / 9 a.m. EDT.
+  #
+  # Reference:
+  # http://docs.aws.amazon.com/lambda/latest/dg/tutorial-scheduled-events-schedule-expressions.html
+  expression: 'rate(1 minute)'
+
+lambda:
+  functionName: 'cloudflare-logs'
+
+  # # Instructions:
+  # # http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html#roles-creatingrole-service-console
+  role: 'arn:aws:iam::302006000367:role/lambda-logpull'
+  # The execution environment for the Lambda function.
+  execution:
+    runtime: 'nodejs8.10'
+    timeoutSeconds: 60
+    memorySizeMB: 512
+
+runtime:
+  # interval must match the rate defined in schedule.expression. For example, for 'rate(5 minutes)', interval is 5
+  interval: 5
+  cf:
+    authKey: 79bfb07774419f2dce2ae7a4f391d72207502
+    authEmail: frank@secure.franktaylor.io
+    orgId: aba996ecd4306f7775a1f9a2f982008a
